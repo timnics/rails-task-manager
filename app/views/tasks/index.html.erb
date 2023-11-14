@@ -1,6 +1,17 @@
 <h1> Tasks List </h1>
-<ul>
+
+
+<ul class="list-group">
   <% @tasks.each do |task| %>
-    <li> <%= link_to task.title, task_path(task)%></li>
+  <li class="list-group-item">
+    <% if  task.completed%>
+      <input class="form-check-input" type="checkbox" checked >
+      <% else %>
+      <input class="form-check-input" type="checkbox" >
+      <% end %>
+      <label for="task1"><%= link_to task.title, task_path(task)%></label>
+  </li>
+  </ul>
   <% end %>
-</ul>
+
+<button type="button" class="btn"><%= link_to "Add a new task", tasks_new_path%></button>
